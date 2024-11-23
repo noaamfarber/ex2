@@ -148,6 +148,61 @@ int main() {
         
             break;
         case 4:
+        int r,q,m;
+        q=0;
+        m=r;
+        printf("Enter a number:\n");
+        scanf(" %d",&r);
+        while(r<=0)
+        {
+            printf("Only positive number is allowed, please try again:\n");
+            scanf("%d",&r);
+        }
+        if(r==1)
+        {
+            printf("The circle remains incomplete.\n");
+            break;
+        }
+        while (m > 0)
+        {
+            q=q*10;
+            q=q+(m % 10);
+            m=m/10;        
+        }
+         m=1;
+    
+    for(int i=2;i<r;i++)
+    {
+        if(r%i==0)
+        {
+         printf("The circle remains incomplete.\n");
+         m=0; 
+        break;
+        }
+    }
+    if(m)
+    {
+    for(int i=2;i<q;i++)
+    {
+        if(q%i==0)
+        {
+         printf("The circle remains incomplete.\n");
+         break; 
+         m=0;
+        }
+    }
+    }
+             if(m)
+             {
+                 printf("This number completes the circle of joy!\n");
+                 
+             }
+
+    
+
+        
+
+        
         
             break;
         case 5:
