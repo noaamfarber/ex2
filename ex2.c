@@ -7,6 +7,9 @@ Assignment: ex2
 #include <stdio.h>
 
 int main() {
+    int exit=1;
+    while(exit)
+    {
     int exp;
 	printf("Choose an option:\n"
 "	1. Happy Face\n"
@@ -25,8 +28,11 @@ int main() {
         scanf(" %c %c %c",&eye, &nose, &mouth);
         printf("Enter face size:\n");
         scanf(" %d", &sze);
+        while(sze<0||sze%2==0)
+        {printf("The face's size must be an odd and positive number, please try again:\n");
+                    scanf(" %d", &sze);
+        }
         
-        if(sze>0&&sze%2==1){
         printf("%c",eye);        
         for(int i =0;i<sze;i++)
         {
@@ -45,15 +51,9 @@ int main() {
         }
         printf("/\n");
 
-  
         
-
-
-        }
-        else
-        {
-            printf("The face's size must be an odd and positive number, please try again:\n");
-        }
+       
+        
 
 
             break;
@@ -210,10 +210,13 @@ int main() {
         case 6:
             break;
         case 7:
+        printf("Thank you for your journey through Numeria!");
+        exit=0;
             break;
         default:
             printf("This option is not available, please try again.\n");
             break;
+    }
     }
 	// Case 1: Draw Happy Face with given symbols for eyes, nose and mouse
 	/* Example:
