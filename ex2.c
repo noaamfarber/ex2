@@ -118,8 +118,37 @@ int main() {
         
             break;
         case 3:
+        int b,a;
+        a=0;
+        printf("Enter a number:\n");
+        scanf(" %d",&b);
+        while(b<0)
+       {
+            printf("Only positive number is allowed, please try again:\n");
+            scanf(" %d",&b);
+        }
+        for(int i =1;i<=(b/2);i++)
+        {
+            if(b%i==0)
+            {
+                a+=i;
+            }
+        }
+        if(b<a)
+        {
+            printf("This number is generous!\n");
+        }
+        else
+        {
+            printf("This number does not share.\n");
+        }
+        
+        
+
+        
             break;
         case 4:
+        
             break;
         case 5:
             break;
