@@ -58,6 +58,64 @@ int main() {
 
             break;
         case 2:
+        int x,y,z,rsum,lsum;
+        rsum=0;
+        lsum=0;
+        printf("Enter a number:\n");
+        scanf(" %d",&x);
+        while(x<0)
+       {
+            printf("Only positive number is allowed, please try again:\n");
+            scanf(" %d",&x);
+        }
+        z=x;
+        y=0;
+        while(z!=0)
+        {
+            z=z/10;
+            y++;
+        }
+        if(y%2==1)
+        {
+            for(int i=0;i<((y-1)/2);i++)
+            {
+                rsum+=x%10;
+                x=x/10;
+            }
+            x=x/10;
+            for(int i=0;i<((y-1)/2);i++)
+            {
+                lsum+=x%10;
+                x=x/10;
+            }
+
+            
+        }
+        else
+        {
+            for(int i=0;i<(y/2);i++)
+            {
+                rsum+=x%10;
+                x=x/10;
+            }
+            for(int i=0;i<(y/2);i++)
+            {
+                lsum+=x%10;
+                x=x/10;
+            }
+
+        }
+        if(rsum==lsum)
+        {
+            printf("This number is balanced and brings harmony!\n");
+        }
+        else
+        {
+            printf("This number isn't balanced and destroys harmony.\n");
+        }
+        
+        
+        
             break;
         case 3:
             break;
