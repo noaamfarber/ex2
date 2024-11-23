@@ -63,7 +63,7 @@ int main() {
         lsum=0;
         printf("Enter a number:\n");
         scanf(" %d",&x);
-        while(x<0)
+        while(x<=0)
        {
             printf("Only positive number is allowed, please try again:\n");
             scanf(" %d",&x);
@@ -147,64 +147,49 @@ int main() {
 
         
             break;
-        case 4:
-        int r,q,m;
-        q=0;
-        m=r;
-        printf("Enter a number:\n");
-        scanf(" %d",&r);
-        while(r<=0)
-        {
-            printf("Only positive number is allowed, please try again:\n");
-            scanf("%d",&r);
-        }
-        if(r==1)
-        {
-            printf("The circle remains incomplete.\n");
+case 4:
+    int num1, rev, isprm;
+    rev = 0;
+    isprm = 1;
+
+    printf("Enter a number:\n");
+    scanf(" %d", &num1);
+
+    while(num1 <= 0) {
+        printf("Only positive number is allowed, please try again:\n");
+        scanf(" %d", &num1);
+    }
+
+    rev = 0;
+    int og = num1;
+    while (num1 > 0) {
+        rev = rev * 10 + (num1 % 10);
+        num1 /= 10;
+    }
+
+    for(int i = 2; i < og; i++) {
+        if(og % i == 0) {
+            isprm = 0;
             break;
         }
-        while (m > 0)
-        {
-            q=q*10;
-            q=q+(m % 10);
-            m=m/10;        
-        }
-         m=1;
-    
-    for(int i=2;i<r;i++)
-    {
-        if(r%i==0)
-        {
-         printf("The circle remains incomplete.\n");
-         m=0; 
-        break;
+    }
+
+    if(isprm) {
+        for(int i = 2; i < rev; i++) {
+            if(rev % i == 0) {
+                isprm = 0;
+                break;
+            }
         }
     }
-    if(m)
-    {
-    for(int i=2;i<q;i++)
-    {
-        if(q%i==0)
-        {
-         printf("The circle remains incomplete.\n");
-         break; 
-         m=0;
-        }
+
+    if(isprm) {
+        printf("This number completes the circle of joy!\n");
+    } else {
+        printf("The circle remains incomplete.\n");
     }
-    }
-             if(m)
-             {
-                 printf("This number completes the circle of joy!\n");
-                 
-             }
 
-    
-
-        
-
-        
-        
-            break;
+    break;
         case 5:
     int n,u,f;
 
@@ -213,7 +198,7 @@ int main() {
 
     while(n<=0) 
     {
-        printf("Only positive numbers are allowed, please try again:\n");
+        printf("Only positive number is allowed, please try again:\n");
         scanf(" %d",&n);
     }
 
@@ -271,57 +256,53 @@ int main() {
        
         
             break;
-        case 6:
-    int sml, chr, max;
-    while(1)
-    {
-        printf("Enter a smile and cheer number:\n");
-        if(scanf("smile: %d, cheer: %d",&sml,&chr)!= 2||sml<=0||chr<= 0||sml==chr)
-        {
+       case 6: {
+    int sml, chr, p;
+
+    printf("Enter a smile and cheer number:\n");
+
+    while (1) {
+        int valid = scanf(" smile :%d , cheer :%d", &sml, &chr);
+
+        if (valid == 2 && sml > 0 && chr > 0 && sml != chr) {
+            break;
+        } else {
             printf("Only 2 different positive numbers in the given format are allowed for the festival, please try again:\n");
-            while(getchar() != '\n');
-        }
-        else
-        {
-            while(getchar() != '\n');
-            break;
+
+            while (getchar() != '\n');
         }
     }
 
-    while(1)
-    {
-        printf("Enter maximum number for the festival:\n");
-        if(scanf("%d", &max) != 1 || max <= 0)
-        {
+    printf("Enter maximum number for the festival:\n");
+
+    while (1) {
+        int valid = scanf("%d", &p);
+
+        if (valid == 1 && p > 0) {
+            break;
+        } else {
             printf("Only positive maximum number is allowed, please try again:\n");
-            while(getchar() != '\n');
-        }
-        else
-        {
-            break;
+
+            while (getchar() != '\n');
         }
     }
 
-    for(int i = 1; i <= max; i++)
-    {
-        if(i % chr == 0 && i % sml == 0)
-        {
+    for (int i = 1; i <= p; i++) {
+        if (i % sml == 0 && i % chr == 0) {
             printf("Festival!\n");
-        }
-        else if(i % chr == 0)
-        {
-            printf("Cheer!\n");
-        }
-        else if(i % sml == 0)
-        {
+        } else if (i % sml == 0) {
             printf("Smile!\n");
-        }
-        else
-        {
+        } else if (i % chr == 0) {
+            printf("Cheer!\n");
+        } else {
             printf("%d\n", i);
         }
     }
-            break;
+
+    break;
+}
+
+
         case 7:
         printf("Thank you for your journey through Numeria!");
         exit=0;
